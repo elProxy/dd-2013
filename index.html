@@ -1,0 +1,342 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=1280;" />
+
+    <meta charset="utf-8" />
+    <title>Introducing QtWebEngine</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Pierre Rossi" />
+
+    <!-- Use the Lato font as suggested by the template sent by Jesper
+         Source Code pro for monospace stuff-->
+    <link href="resources/fonts.css" rel="stylesheet" />
+    <!-- FontAwesome ! -->
+    <link href="resources/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="resources/impress.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="resources/utils.js"></script>
+
+</head>
+
+<body class="impress-not-supported">
+<div id="impress">
+
+    <div id="titlePage" class="step" data-y="-2000" data-x="-3900">
+        <h1>Introducing QtWebEngine</h1>
+        <h2>Pierre Rossi</h2>
+    </div>
+
+    <div id="whoami" class="step slide" data-y="-2000" data-x="-2600">
+        <h1><code>whoami</code></h1>
+
+     <h2>Pierre Rossi <!--<span class="nickSpan">[elproxy]</span>--></h2>
+     <ul>
+         <li>Working at Digia, based in Oslo</li>
+         <li>Open-source enthusiast</li>
+         <li>Loves cooking &amp; climbing</li>
+
+     </ul>
+
+    </div>
+
+    <div class="step slide" data-y="-2000" data-x="-1300">
+    	<h1>What is this all about ?</h1>
+
+     <ul class="nodot">
+         <li style="margin-top:1em;"><i class="icon-question-sign"></i>Answer questions</li>
+         <li style="margin-top:1em;"><i class="icon-book"></i>My agenda</li>
+     </ul>
+    </div>
+
+<!--
+    <div class="step slide" data-y="-2000" data-x="-1500" data-scale="0.5">
+        <h1>You</h1>
+     <ul class="nodot">
+         <li><i class="icon-question-sign"></i> Why?</li>
+         <li><i class="icon-question-sign"></i> What?</li>
+         <li><i class="icon-question-sign"></i> How?</li>
+         <li><i class="icon-question-sign"></i> When?</li>
+         <li><i class="icon-question-sign"></i> Where?</li>
+     </ul>
+
+    </div>
+
+    <div class="step slide" data-y="-2000" data-x="-1000" data-scale="0.5">
+       <h1>Me</h1>
+       <ul>
+           <li>Confidence</li>
+           <li>Curiosity</li>
+       </ul>
+    </div>
+-->
+
+    <div id="toc" class="step slide" data-y="-2000">
+    	<h1>Contents</h1>
+        <ol>
+            <li class="part-1">A bit of history</li>
+            <li class="part-2">What's the deal with QtWebEngine?</li>
+            <li class="part-3">The road ahead</li>
+        </ol>
+
+    </div>
+
+    <div class="step slide" data-y="-2000" data-x="1300">
+        <!-- Skip the KHTML era, no offense... ;) So let's just say at the beginning, there was WebKit -->
+    	<h1>WebKit</h1>
+        <ul>
+            <li>Introduced QtWebKit with Qt 4.4</li>
+            <li>Upstream port</li>
+            <li>Great success!</li>
+        </ul>
+    </div>
+
+    <div class="step" data-y="-1600" data-x="1300">
+    <!-- sandwich picture
+         Qt at the API level, but also down below.
+         Abstract interfaces.
+         Features don't really come for free.
+         Tight coupling can appear to be a blessing (ex: QNAM functionality) but comes with a cost.
+     -->
+        <a href='http://www.flickr.com/photos/hozinja/4840613761/' class="basicLink">
+        <img src="images/sandwich640.jpg" style="border-radius:30px; margin-top:50px" alt='Roast beef sandwich by hozinja, on Flickr'></img>
+        </a>
+        <p style="color:white; z-index:2; margin:-32px 0 0 9em; font-size: 18px; font-weight:bold;"><a href="http://creativecommons.org/licenses/by/2.0/" class="cc-by basicLink"></a> Roast beef sandwich by <a href="http://www.flickr.com/photos/hozinja/">hozinja</a>, on Flickr</p>
+    </div>
+
+    <div id="splitting" class="step slide" data-y="-1600" data-x="2600">
+       <h1>Splitting processes</h1>
+       <!-- Missing piece of functionality becoming increasingly popular
+            made popular by chromium
+            Apple kickstarted WebKit2 (answer to Chrome on the desktop front)
+            QtWebKit experimentation with the N9 (FIXED: pic?)
+            "Baked" -> API boundary is "above" the process separation layer
+        -->
+       <ul>
+           <li>Benefits of split process architecture</li>
+           <li>Baked right into the framework</li>
+           <li>Nokia N9 times</li>
+       </ul>
+    </div>
+
+    <div id="split-diagrams" class="step" data-y="-1600" data-x="3400">
+        <canvas id="WebKit2" style="-webkit-border-radius: 15px;">
+        "huh huh, you shouldn't be seeing this !"
+        </canvas>
+        <script type="text/javascript" src="resources/split-process-arch-canvas.js"></script>
+    </div>
+
+    <div id="splitting2" class="step" data-y="-1300" data-x="2600">
+       <img style="margin-top:2.2em; opacity:0.8;" src="images/nokia-n9-family.jpg"></img>
+    </div>
+
+    <div class="step slide" data-y="-800" data-x="3400">
+      <h1>Rough WebKit2 timeline</h1>
+      <ul class="nodot">
+          <li><b>April 2010:</b> Apple announces WebKit2</li>
+          <li><b>July 2011:</b>  Safari 5.1 ships</li>
+          <li><b>September 2011:</b>  N9 ships</li>
+          <li><b>December 2012:</b>  Qt 5.0 is out</li>
+    </div>
+
+    <div class="step" data-x="3400" data-rotate="900" data-scale="0.6">
+        <!-- screenshot of the blog post-->
+       <img src="images/blink-blog-wider.png" class="newspaper"></img>
+    </div>
+
+    <div class="step slide" data-x="2600" data-rotate="900" data-scale="0.6">
+       <h1>Impact for us ?</h1>
+        <ul>
+            <li>Biggest contributor departing</li>
+            <li>Our cross platform story</li>
+            <li>Our developer story?</li>
+            <li>Time to reduce sail?</li>
+
+    <!-- Show Table of Contents again -->
+    <div id="toc2" class="step" data-y="-2000"></div>
+
+
+    <div class="step slide" data-y="-1000">
+        <h1>Chromium or Blink?</h1>
+        <h2>Building on top of the content API</h2>
+        <ul class="nodot">
+            <li><i class="icon-thumbs-up"></i>Split process</li>
+            <li><i class="icon-thumbs-up"></i>Up to date web-exposed features</li>
+            <li><i class="icon-thumbs-up"></i>Cross platform support</li>
+        </ul>
+    </div>
+
+    <div class="step slide" data-x="-430" data-y="-200"  data-scale="0.5" data-rotate="120">
+        <h1>The web is moving fast</h1>
+            <div class="browser">
+               <div class="toolbar">
+                   <div class="buttons">
+                       <button class="back" disabled><i class="icon-arrow-left"></i></button>
+                       <button class="forward" disabled><i class="icon-arrow-right"></i></button>
+                       <button class="refresh"><i class="icon-repeat"></i></button>
+                   </div>
+                   <div class="address" contenteditable>
+                       <div>http://aasen.in/github_globe/</div>
+                   </div>
+               </div>
+               <!--<iframe src="http://aasen.in/github_globe/" frameborder="0"></iframe>-->
+               <!--Serve from localhost-->
+               <iframe src="http://localhost:8000/github_globe/index.html" frameborder="0"></iframe>
+           </div>
+    </div>
+
+    <div class="step slide" data-x="430" data-y="100" data-rotate="240" data-scale="0.5">
+
+        <h1>very fast</h1>
+            <div class="browser">
+               <div class="toolbar">
+                   <div class="buttons">
+                       <button class="back" disabled><i class="icon-arrow-left"></i></button>
+                       <button class="forward" disabled><i class="icon-arrow-right"></i></button>
+                       <button class="refresh"><i class="icon-repeat"></i></button>
+                   </div>
+                   <div class="address" contenteditable>
+                       <!--<div>http://helloracer.com/webgl/</div>-->
+                       <div>http://appear.in/</div>
+                   </div>
+               </div>
+               <!--<iframe src="http://www.youtube.com/watch?v=FIs5YqzS4Bc" frameborder="0"></iframe>-->
+               <!--<iframe src="http://alteredqualia.com/three/examples/webgl_pasta.html" frameborder="0"></iframe>-->
+               <!--<iframe src="http://helloracer.com/webgl/" frameborder="0"></iframe>-->
+               <!--<iframe src="http://appear.in" frameborder="0"></iframe>-->
+               <img src="images/appear.in.png" style="width: 100%;"></img>
+           </div>
+
+    </div>
+
+    <div class="step slide" data-x="0" data-y="400" data-rotate="360" data-scale="0.5">
+        <h1>...and so should Qt!</h1>
+        <iframe width="640" height="390" src="http://www.youtube.com/embed/FIs5YqzS4Bc" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script type="text/javascript">
+        var elements = document.querySelectorAll(".address");
+	for (i = 0; i < elements.length; ++i)
+	    elements[i].addEventListener("keydown", addressBarKeyListener, true);
+        elements = document.querySelectorAll(".refresh");
+	for (i = 0; i < elements.length; ++i)
+	    elements[i].addEventListener("click", browserReload, true);
+    </script>
+
+    <div class="step slide" data-x="0" data-y="1100" data-rotate="360" data-scale="1">
+        <h1>Architecture and APIs</h1>
+
+            <div style="width:80%; height:30%">
+                <div class="splitter">
+                <div class="green box">
+                    <i>Widgets</i><br/>
+                    QT += webenginewidgets
+                </div>
+                <div class="orange box">
+                    <i>Qt Quick</i><br/>
+                    import QtWebEngine 1.0
+                </div>
+                </div>
+                <div class="box" style="padding: 15px;">
+                    QtWebEngineCore
+                    <div class="blue box" style="padding-bottom:20px; padding-top:20px;">Chromium</div>
+                </div>
+            </div>
+            <ul class="nodot">
+                <li><i class="icon-hand-right"></i>Widgets C++ library</li>
+                <li><i class="icon-hand-right"></i>QtQuick plugin</li>
+            </ul>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="1800" data-rotate="360" data-scale="1">
+        <h1>QtWebEngineWidgets</h1>
+        <ul>
+            <li>QtWebKitWidgets' little sister</li>
+<!-- We're not reinventing the wheel!  designing a good API is hard.
+     Migrating people over is our priority: let's not artificially raise the bar of the migrating effort. -->
+            <li>Lighter</li> <!--There will be pieces of missing functionality. Some might come back over time -->
+            <li>And with some adjustments</li> <!-- QWebFrame folded into QWebPage. RunJS async, etc... -->
+        </ul>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="2500" data-rotate="360" data-scale="1">
+        <h1 style="font-size:1.4em;">QtQuick + WebEngine&nbsp;=&nbsp;<i class="icon-heart-empty"></i></h1>
+        <ul>
+            <li>Building from the ground up</li> <!-- harder to tell what it is going to look like. Trying to follow the minimal public API of QtQuick/WebKit2 -->
+            <li>Scene graph integration</li>
+            <li>"Soft" dependency on controls</li> <!-- for UI delegates to work out of the box. And because we hate to copy code around -->
+        </ul>
+    </div>
+
+
+
+    <!-- ...and show Table of Contents again -->
+    <div id="toc3" class="step" data-y="-2000"></div>
+
+    <div id="road" class="step slide" data-x="-3900" data-y="0" data-rotate="-90" data-scale="1">
+        <h1><i class="icon-road"></i> Roadmap</h1>
+            <h2>Technology preview</h2>
+            <ul class="nodot">
+                <li><i class="icon-time"></i>end of the year</li>
+                <li><i class="icon-hand-right"></i>Taste of the API</li>
+                <li><i class="icon-linux"></i> + <i class="icon-apple"></i> + Embedded <i class="icon-android"></i></li>
+            </ul>
+    </div>
+    <div id="road2" class="step slide" data-x="-3450" data-y="0" data-rotate="-90" data-scale="1">
+            <h1><!--Dummy-->&nbsp;</h1>
+            <h2>First release</h2>
+            <ul class="nodot">
+                <li><i class="icon-time"></i>targetting 5.3</li>
+                <li><i class="icon-hand-right"></i>WebKit1-friendly Widgets API</li>
+                <li><i class="icon-hand-right"></i>QtQuick API</li>
+                <li><i class="icon-linux"></i> + <i class="icon-apple"></i> + <i class="icon-windows"></i> + Embedded</li>
+            </ul>
+    </div>
+
+    <div class="step slide" data-x="-2500" data-y="2000" data-rotate="-180" data-scale="1">
+            <h1>Migration plan</h1>
+            <ul>
+                <li>WebKit2 early adopters</li>
+                <li>Simple widgets-based app</li>
+                <li>More complex hybrid applications</li>
+            </ul>
+
+<!-- FIXME: Show off fancybrowser "porting" in creator... -->
+    </div>
+
+    <div class="step slide" data-x="-1800" data-y="500" data-rotate="-270" data-scale="1">
+            <h1>How can I help?</h1>
+            <ul class="nodot">
+                <li><i class="icon-bug"></i>Try the Tech Preview!</li>
+                <li><i class="icon-umbrella"></i>Under the Qt project umbrella</li>
+                <li><i class="icon-comments-alt"></i><code>#qtwebengine</code> on Freenode</li>
+                <li>[<a href="http://qt-project.org/wiki/QtWebEngine">http://qt-project.org/wiki/QtWebEngine</a>]</li>
+            </ul>
+    </div>
+
+    <div id="thanks"class="step" data-x="-3000" data-y="-1200" data-rotate="-360" data-scale="1">
+        <h1>Thank you!</h1>
+        <div class="footnote">This presentation wouldn't have been what it is without <a href="http://bartaz.github.io/impress.js/">impress.js</a> and <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a>. Thanks folks!</div>
+    </div>
+
+    <div id="questions"class="step" data-x="-3010" data-y="-1215" data-rotate="-450" data-scale="0.1">
+        <h1><i class="icon-question"></i>Questions</h1>
+        <div class="footnote"><a href="mailto:pierre.rossi@digia.com">pierre.rossi@digia.com</a></div>
+    </div>
+
+
+    <!-- The overview of all the steps... -->
+    <div id="overview" class="step" data-scale="8" data-x="0"></div>
+
+</div>
+
+<script src="impress.js/js/impress.js"></script>
+<script>
+    impress().init();
+    document.addEventListener("keydown", onKeyDownEventHandler, false);
+</script>
+
+
+</body>
+</html>
